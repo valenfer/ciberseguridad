@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción - Ciberseguridad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>    
+     /* Variables CSS para facilitar la personalización de colores */
+:root {
+    --primary-color: #007bff; /* Azul corporativo */
+    --secondary-color: #28a745; /* Verde para éxito/envío */
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos Generales y Tipografía */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.survey-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.survey-title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.introduction {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    color: #555;
+}
+
+/* Estilos de las Secciones */
+.section-group {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+.section-group h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Estilos de las Preguntas */
+.question-block {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.question-block label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Escala de Satisfacción (Rating Scale) */
+.scale-info {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.rating-scale {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px; /* Para que no se estire demasiado */
+}
+
+.rating-scale input[type="radio"] {
+    display: none; /* Ocultar el radio button nativo */
+}
+
+.rating-scale label {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: 400;
+    margin: 0 5px;
+}
+
+/* Estado Hover y Seleccionado */
+.rating-scale label:hover {
+    background-color: #e8e8e8;
+    border-color: var(--primary-color);
+}
+
+.rating-scale input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Preguntas Abiertas */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+/* Botón de Envío */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 40px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #218838; /* Tono más oscuro de verde */
+}
+    </style>
+</head>
+<body>
+    <div class="survey-container">
+        <header>
+            <h1 class="survey-title">Encuesta sobre la Formación en Ciberseguridad</h1>
+            <p class="introduction">
+                Gracias por completar esta encuesta "anónima". Su feedback es fundamental para evaluar la calidad de la formación recibida y planificar futuras mejoras en AulaSur.
+            </p>
+        </header>
+
+        <form action="#" method="post">
+
+            <section class="section-group closed-questions">
+                <h2>1. Evaluación General (Escala de 1 a 5)</h2>
+                <p class="scale-info">
+                    (1 = Totalmente en desacuerdo, 5 = Totalmente de acuerdo)
+                </p>
+
+                <div class="question-block">
+                    <label>La formación ha sido clara y fácil de entender.</label>
+                    <div class="rating-scale" data-name="p1_claridad">
+                        <input type="radio" id="p1_1" name="p1_claridad" value="1" required><label for="p1_1">1</label>
+                        <input type="radio" id="p1_2" name="p1_claridad" value="2"><label for="p1_2">2</label>
+                        <input type="radio" id="p1_3" name="p1_claridad" value="3"><label for="p1_3">3</label>
+                        <input type="radio" id="p1_4" name="p1_claridad" value="4"><label for="p1_4">4</label>
+                        <input type="radio" id="p1_5" name="p1_claridad" value="5"><label for="p1_5">5</label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <label>Los contenidos tratados estaban relacionados con mi trabajo diario en AulaSur.</label>
+                    <div class="rating-scale" data-name="p2_relacion">
+                        <input type="radio" id="p2_1" name="p2_relacion" value="1" required><label for="p2_1">1</label>
+                        <input type="radio" id="p2_2" name="p2_relacion" value="2"><label for="p2_2">2</label>
+                        <input type="radio" id="p2_3" name="p2_relacion" value="3"><label for="p2_3">3</label>
+                        <input type="radio" id="p2_4" name="p2_relacion" value="4"><label for="p2_4">4</label>
+                        <input type="radio" id="p2_5" name="p2_relacion" value="5"><label for="p2_5">5</label>
+                    </div>
+                </div>
+                
+                <div class="question-block">
+                    <label>Ahora tengo más claro cómo detectar un correo sospechoso o posible phishing.</label>
+                    <div class="rating-scale" data-name="p3_phishing">
+                        <input type="radio" id="p3_1" name="p3_phishing" value="1" required><label for="p3_1">1</label>
+                        <input type="radio" id="p3_2" name="p3_phishing" value="2"><label for="p3_2">2</label>
+                        <input type="radio" id="p3_3" name="p3_phishing" value="3"><label for="p3_3">3</label>
+                        <input type="radio" id="p3_4" name="p3_phishing" value="4"><label for="p3_4">4</label>
+                        <input type="radio" id="p3_5" name="p3_phishing" value="5"><label for="p3_5">5</label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <label>Me siento más preparado/a para proteger mis contraseñas y mi puesto de trabajo.</label>
+                    <div class="rating-scale" data-name="p4_contrasenas">
+                        <input type="radio" id="p4_1" name="p4_contrasenas" value="1" required><label for="p4_1">1</label>
+                        <input type="radio" id="p4_2" name="p4_contrasenas" value="2"><label for="p4_2">2</label>
+                        <input type="radio" id="p4_3" name="p4_contrasenas" value="3"><label for="p4_3">3</label>
+                        <input type="radio" id="p4_4" name="p4_contrasenas" value="4"><label for="p4_4">4</label>
+                        <input type="radio" id="p4_5" name="p4_contrasenas" value="5"><label for="p4_5">5</label>
+                    </div>
+                </div>
+                
+                <div class="question-block">
+                    <label>La duración y el ritmo de la sesión han sido adecuados.</label>
+                    <div class="rating-scale" data-name="p5_ritmo">
+                        <input type="radio" id="p5_1" name="p5_ritmo" value="1" required><label for="p5_1">1</label>
+                        <input type="radio" id="p5_2" name="p5_ritmo" value="2"><label for="p5_2">2</label>
+                        <input type="radio" id="p5_3" name="p5_ritmo" value="3"><label for="p5_3">3</label>
+                        <input type="radio" id="p5_4" name="p5_ritmo" value="4"><label for="p5_4">4</label>
+                        <input type="radio" id="p5_5" name="p5_ritmo" value="5"><label for="p5_5">5</label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <label>Considero que esta formación debería repetirse periódicamente.</label>
+                    <div class="rating-scale" data-name="p6_repeticion">
+                        <input type="radio" id="p6_1" name="p6_repeticion" value="1" required><label for="p6_1">1</label>
+                        <input type="radio" id="p6_2" name="p6_repeticion" value="2"><label for="p6_2">2</label>
+                        <input type="radio" id="p6_3" name="p6_repeticion" value="3"><label for="p6_3">3</label>
+                        <input type="radio" id="p6_4" name="p6_repeticion" value="4"><label for="p6_4">4</label>
+                        <input type="radio" id="p6_5" name="p6_repeticion" value="5"><label for="p6_5">5</label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-group open-questions">
+                <h2>2. Comentarios y Sugerencias</h2>
+
+                <div class="question-block">
+                    <label for="abierta1">¿Qué ha sido lo que "más te ha gustado" o te ha resultado "más útil" de la formación?</label>
+                    <textarea id="abierta1" name="abierta1" rows="4"></textarea>
+                </div>
+
+                <div class="question-block">
+                    <label for="abierta2">¿Qué "mejorarías" o qué temas te gustaría que se trataran con más detalle en futuras sesiones?</label>
+                    <textarea id="abierta2" name="abierta2" rows="4"></textarea>
+                </div>
+
+                <div class="question-block">
+                    <label for="abierta3">¿Has cambiado alguna práctica concreta en tu trabajo a raíz de esta formación? Indica cuál.</label>
+                    <textarea id="abierta3" name="abierta3" rows="4"></textarea>
+                </div>
+            </section>
+
+            <button type="submit" class="submit-btn">Enviar Encuesta</button>
+
+        </form>
+    </div>
+</body>
+</html>
